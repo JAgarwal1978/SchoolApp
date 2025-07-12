@@ -1,0 +1,9 @@
+<h2 class="title">{{comptitle}}</h2>
+<div class="card-container">
+    <div class="card" *ngFor="let s of students">
+        <img src="{{s.image}}" alt="Student Image" class="student-image">
+        <strong>Name:</strong> {{ s.name }}<br>
+        <strong>Age:</strong> {{ s.age }}<br>
+        <strong>Course:</strong> {{ s.course }}
+    </div>
+</div>
