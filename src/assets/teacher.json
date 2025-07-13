@@ -1,0 +1,30 @@
+[{
+    "name": "Jaswant",
+    "age": 30,
+    "subject": "Computer Science",
+    "image":"https://randomuser.me/api/portraits/men/3.jpg"
+  },
+{
+    "name": "Nitin",
+    "age": 40,
+    "subject": "English",
+    "image":"https://randomuser.me/api/portraits/women/1.jpg"
+  },
+{
+    "name": "Suraj",
+    "age": 32,
+    "subject": "Science",
+    "image":"https://randomuser.me/api/portraits/men/4.jpg"
+  },
+{
+    "name": "Rakesh",
+    "age": 35,
+    "subject": "Computer",
+    "image":"https://randomuser.me/api/portraits/women/3.jpg"
+  },
+{
+    "name": "Rajesh",
+    "age": 26,
+    "subject": "Maths",
+    "image":"https://randomuser.me/api/portraits/women/7.jpg"
+  }]
