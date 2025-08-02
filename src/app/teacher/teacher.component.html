@@ -1,9 +1,21 @@
 <h2 class="title">{{comptitle}}</h2>
+<div> 
+<form (submit) = "addTeacher();"> 
+<input type="text" name="txtname" placeholder="Enter Name" [(ngModel)]="name"/>
+<input type="number" name="txtage" placeholder="Enter Age" [(ngModel)]="age" /> 
+<input type="text" name="txtsubject" placeholder="Enter Subject" [(ngModel)]="subject"/>
+
+<button type="submit">Add Teacher</button>
+</form>
+
+</div>
 <div class="card-container">
     <div class="card" *ngFor="let t of teachers">
         <img src="{{t.image}}" alt="Teacher Image" class="teacher-image">
-        <strong>Name:</strong> {{ t.name }}<br>
+        <strong>Id:</strong>{{t.id}}<br>
+        <strong>Name:</strong> {{ t.name | firstcap | slice: 2 }}<br>
         <strong>Age:</strong> {{ t.age }}<br>
-        <strong>subject:</strong> {{ t.subject }}
+        <strong>subject:</strong> {{ t.subject | lowercase}}
+        <strong>DOB:</strong>{{"01/09/1993" | date:'short'}}
     </div>
 </div>
