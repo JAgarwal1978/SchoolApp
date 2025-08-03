@@ -1,9 +1,27 @@
 <h2 class="title">{{comptitle}}</h2>
+<div> 
+<form (submit) = "addStudent();"> 
+<input type="text" name="txtfirstname" placeholder="Enter FirstName" [(ngModel)]="firstName"/><br/>
+<input type="text" name="txtlastname" placeholder="Enter LastName" [(ngModel)]="lastName"/><br/>
+<input type="date" name="txtdateofbirth"  [(ngModel)]="dateOfBirth"/><br/>
+<input type="text" name="txtgender" placeholder="Enter Gender" [(ngModel)]="gender"/><br/>
+<input type="tel" name="txtphone"  [(ngModel)]="phone"/><br/>
+<input type="email" name="txtemail" placeholder="Enter Email" [(ngModel)]="email"/><br/>
+<input type="text" name="txtaddress" placeholder="Enter Address" [(ngModel)]="address"/><br/>
+<input type="number" name="txtage" placeholder="Enter Age" [(ngModel)]="age" /> <br/>
+<input type="text" name="txtsubject" placeholder="Enter Subject" [(ngModel)]="subject"/><br/>
+<button type="submit">Add Student</button>
+</form>
+</div>
 <div class="card-container">
     <div class="card" *ngFor="let s of students">
-        <img src="{{s.image}}" alt="Student Image" class="student-image">
-        <strong>Name:</strong> {{ s.name }}<br>
-        <strong>Age:</strong> {{ s.age }}<br>
-        <strong>Course:</strong> {{ s.course }}
+        <!-- <img src="{{s.image}}" alt="Student Image" class="student-image"> -->
+         <strong>StudentID:</strong> {{s.studentID}}<br>
+        <strong>Name:</strong> {{ s.firstName | firstcap}} {{ s.lastName |firstcap }}<br>
+        <strong>DOB:</strong> {{ s.dateOfBirth }}<br>
+        <strong>Phone:</strong> {{ s.phone }}<br>
+        <strong>Email:</strong> {{ s.email }}<br>
+        <strong>Address:</strong> {{ s.address }}<br>
+     
     </div>
 </div>
