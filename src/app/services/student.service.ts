@@ -15,13 +15,16 @@ private apiUrladdStudents ="http://localhost:18292/AddStudent";
 constructor(private http: HttpClient) 
 { }
 
- addStudent(student:Student): void
+ addStudent(student:Student): Observable<Student>
   {
     //this.students.push(student);
-    this.http.post(this.apiUrladdStudents,student).subscribe({
-  next: res => console.log('Success', res),
-  error: err => console.error('Error', err)
-});
+  //   this.http.post(this.apiUrladdStudents,student).subscribe({
+  // next: res => console.log('Success', res),
+  // error: err => console.error('Error', err)
+//});
+    return this.http.post<Student>(this.apiUrladdStudents, student).pipe(
+      catchError(this.handleError)
+    );
     this.studentSubject.next(this.students);
   }
  handleError(error: HttpErrorResponse):Observable<any> {
