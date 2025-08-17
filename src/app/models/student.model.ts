@@ -11,6 +11,7 @@ address:string;
 cityID:number;
 cityName:string;
 city:string;
+image:string;
 }
  
   

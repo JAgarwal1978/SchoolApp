@@ -28,6 +28,10 @@ export class StudentComponent {
   cityID: number = 0;
   constructor(private studentService: StudentService, private cdr: ChangeDetectorRef) {
     this.studentService.getStudents().subscribe((students) => {
+      for (let student of students) {
+
+        student.image = `https://randomuser.me/api/portraits/women/${student.studentID}.jpg`;
+      }
       this.students = students;
     })
   }
@@ -35,29 +39,36 @@ export class StudentComponent {
   addStudent(): void {
     if (this.firstName) {
       this.studentID = (this.students.length + 1);
-      this.image = `https://randomuser.me/api/portraits/women/${this.studentID}.jpg`;      
-      var newStudent : Student={
-      "studentID": 3,
-  "firstName": "John",
-  "lastName": "Doe",
-  "dateOfBirth": new Date('2021-08-03T03:44:01.896Z'),
-  "gender": "M",
-  "email": "ssdfd@dsff.com",
-  "phone": "12324",
-  "address": "pune",
-  "cityID": 2,
-  "cityName": "Pune",
-  "city": "Pune"
+      this.image = `https://randomuser.me/api/portraits/women/${this.studentID}.jpg`;
+      var newStudent: Student = {
+        "studentID": this.studentID,
+        "firstName": this.firstName,
+        "lastName": this.lastName,
+        "dateOfBirth": new Date(this.dateOfBirth),
+        "gender": this.gender,
+        "email": this.email,
+        "phone": this.phone,
+        "address": this.address,
+        "cityID": this.cityID,
+        "cityName": "Pune",
+        "city": "Pune",
+        "image": "",
       }
       this.studentService.addStudent(newStudent).subscribe({
-        next: () => { this.studentService.getStudents().subscribe((students) => {
-      this.students = students;
-    })},
-        error: (err) => {}
-        
+        next: () => {
+          this.studentService.getStudents().subscribe((students) => {
+            for (let student of students) {
+
+              student.image = `https://randomuser.me/api/portraits/women/${student.studentID}.jpg`;
+            }
+            this.students = students;
+          })
+        },
+        error: (err) => { }
+
       });
-     
-    
+
+
       this.cdr.detectChanges();
     }
 
@@ -68,7 +79,7 @@ export class StudentComponent {
       this.students = students;
     }, error => {
       console.error('Error fetching students:', error);
-    }); 
+    });
 
   }
 }
